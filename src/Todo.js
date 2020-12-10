@@ -28,7 +28,7 @@ function Todo(props) {
   if(isEditing){
     result=(
       <div className="Todo">
-        <form onSubmit={handleUpdate}>
+        <form className='Todo-edit-form' onSubmit={handleUpdate}>
           <input type="text" name='task' value={task.task} name='task' onChange={handleChange}/>
           <button>Save</button>
         </form>
@@ -37,13 +37,19 @@ function Todo(props) {
   } else {
     result=(
       <div className="Todo">
-      <button onClick={toggleForm}>Edit</button>
-      <button onClick={handleRemove}>X</button>
-      <li className={props.completed ? 'Todo-task completed' : 'Todo-task'}
+         <li className={props.completed ? 'Todo-task completed' : 'Todo-task'}
        onClick={handleToggle}
       >
        {props.task} </li>
-    </div>
+       <div className='Todo-buttons'>
+          <button onClick={toggleForm}>
+            <i class='fas fa-pen' />
+          </button>
+          <button onClick={handleRemove}>
+            <i class='fas fa-trash' />
+          </button>
+        </div>
+      </div>
     )
   }
   return result;

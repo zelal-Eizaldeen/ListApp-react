@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import uuid from 'uuid/dist/v4';
+import './NewTodoForm.css';
 function NewTodoForm(props) {
 const [task, setTask] = useState({task: ""});
 
@@ -15,7 +16,7 @@ const handleSubmit = (e) => {
 }
 
   return(
-    <form onSubmit={handleSubmit}>
+    <form className="NewTodoForm" onSubmit={handleSubmit}>
       <label htmlFor='task'>New Todo</label>
       <input 
         type='text' 
